@@ -11,8 +11,7 @@
             "node",
             "@wdio/globals/types",
             "expect-webdriverio",
-            "@wdio/cucumber-framework",
-            "webdriverio/sync"
+            "@wdio/cucumber-framework"
         ],
         "skipLibCheck": true,
         "noEmit": true,

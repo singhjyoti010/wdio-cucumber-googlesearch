@@ -1,12 +1,9 @@
 import { When } from "@wdio/cucumber-framework";
+import search from "../../helpers/helper-functions/search.ts";
 
 //--------------------------- one-way ---------------------------
 When('user enters {string} in search bar', async (searchText) => {
-    console.log(searchText);
-    let searchBar = $('[aria-label="Search"]')
-    await searchBar.waitForDisplayed(5000);
-    await searchBar.setValue(searchText);
-    await $('//*[@role="listbox"]//*[contains(@data-entityname, "cucumber")]').waitForDisplayed({timeout:20000});
+    await search(searchText, $('[aria-label="Search"]'), $('//*[@role="listbox"]//*[contains(@data-entityname, "cucumber")]'), $(`//*[@role="listbox"]//*[contains(@data-entityname, "${searchText}")]`));
 })
 
 // --------------------------- other-way ---------------------------
